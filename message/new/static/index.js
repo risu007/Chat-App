@@ -63,8 +63,17 @@ async function add_message( data ) {
     var txt="<div class=\"container darker text-left\"><b>"+data.name+" : </b><span>"+data.msg+"</span><br><small class=\"text-muted\">"+data.time+"</small></div>"
   }
   document.getElementById("print").innerHTML+=txt;
-  $('#print').animate({ scrollTop: $("#print").height() }, 1000);
+  scrollSmoothToBottom("print")
 }
+
+
+function scrollSmoothToBottom(id) {
+ var div = document.getElementById(id);
+ $('#' + id).animate({
+    scrollTop: div.scrollHeight - div.clientHeight
+ }, 500);
+}
+
 
 
 socket.on('left',async function(data){
