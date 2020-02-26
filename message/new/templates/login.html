@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %} Login {% endblock %}
+
+
+{% block status %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div id="log2" class="alert alert-dark" role="alert">
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+            <button  type="button" class="close crss" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+      {% endif %}
+    {% endwith %}
+{% endblock %}
+
+{% block content %}
+
+<form class="form-inline" action="#" method="POST">
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="inputName" class="sr-only">Name</label>
+    <input type="text" class="form-control" name="input_name" id="input_name" placeholder="Name">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Enter</button>
+</form>
+
+{% endblock %}
+
+
+
+<script src="{{url_for('static',filename='index.js')}}"></script>

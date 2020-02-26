@@ -1,0 +1,19 @@
+.container {
+              border: 2px solid #dedede;
+              background-color: #f1f1f1;
+              border-radius: 5px;
+              padding: 10px;
+
+            }
+
+.darker {
+              border-color: #ccc;
+              background-color: #ddd;
+            }
+
+.start{
+    background-color: #80EDB1;
+}
+.leave{
+    background-color: #EE9113;
+}

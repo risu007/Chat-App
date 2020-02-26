@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} Home Page {% endblock %}
+
+
+{% block status %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div id="log1" class="alert alert-success" role="alert">
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+            <button type="button" class="close crss" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+      {% endif %}
+    {% endwith %}
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div id="print" class="overflow-auto" style="overflow-y: scroll; height:500px;">
+    </div>
+    <form id="msgForm" action="" method="POST" style="bottom:0; margin: 0% 0% 0% 0%;">
+        <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Message" aria-label="Message" id="msg">
+              <div class="input-group-append">
+                <button class="btn btn-success" type="submit" id="sendBtn">Send</button>
+              </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
+<script src="{{url_for('static',filename='index.js')}}"></script>
+
