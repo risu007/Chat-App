@@ -1,7 +1,6 @@
 from flask_socketio import SocketIO
 from message.new import create_app
-
-
+from flask import session
 
 app=create_app()
 socketio = SocketIO(app)
@@ -22,6 +21,17 @@ def handle_my_custom_event(json,methods=["POST,GET"]):
         db.session.add(chat)
         db.session.commit()
     socketio.emit('message pass',json)
+
+
+# disconnect during network failure or close tab
+# @socketio.on('disconnect')
+# def test_disconnect():
+#     if 'name' in session:
+#         print('disconnect- ',session['name'])
+#         name=session['name']
+#         session.pop('name',None)
+#         session.modified=True
+#         socketio.emit('message pass',{'msg': 'Disconnected!','connect':'disconnect','name':name})
 
 
 

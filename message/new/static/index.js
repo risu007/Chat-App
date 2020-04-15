@@ -46,9 +46,15 @@ socket.on( 'connect',async function() {
         })
     })
 } )
+
+socket.on('disconnect',async function(){
+
+})
+
 async function add_message( data ) {
   var name=await load_name()
   console.log(data)
+  console.log(name)
   if(typeof data.connect!=='undefined')
   {
     console.log(data.connect)
@@ -77,7 +83,6 @@ function scrollSmoothToBottom(id) {
 
 
 socket.on('left',async function(data){
-  data["time"]=await get_date()
   data["connect"]="leave"
   add_message(data)
 })
